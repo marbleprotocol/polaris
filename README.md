@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/marbleprotocol/polaris.svg?style=svg&circle-token=4356775e74744e94c26e3f4a12221cdb803a9f46)](https://circleci.com/gh/marbleprotocol/polaris))
+[![CircleCI](https://circleci.com/gh/marbleprotocol/polaris.svg?style=svg&circle-token=4356775e74744e94c26e3f4a12221cdb803a9f46)](https://circleci.com/gh/marbleprotocol/polaris)
 
 # Polaris
 
