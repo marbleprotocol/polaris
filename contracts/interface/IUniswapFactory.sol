@@ -1,0 +1,14 @@
+pragma solidity 0.5.2;
+
+
+contract IUniswapFactory {
+    // Public Variables
+    address public exchangeTemplate;
+    uint256 public tokenCount;
+    // Create Exchange
+    function createExchange(address token) external returns (address payable exchange);
+    // Get Exchange and Token Info
+    function getExchange(address token) external view returns (address payable exchange);
+    function getToken(address exchange) external view returns (address token);
+    function getTokenWithId(uint256 tokenId) external view returns (address token);
+}

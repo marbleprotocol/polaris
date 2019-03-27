@@ -1,0 +1,73 @@
+{
+  "name": "polaris",
+  "version": "0.0.1",
+  "description": "Polaris - A decentralized price oracle for ERC20 tokens",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "yarn pre_build && tsc",
+    "chain": "ganache-cli -p 8545 -i 50 -l 100000000 -e 100 -m 'concert load couple harbor equip island argue ramp clarify fence smart topic'",
+    "clean": "shx rm -rf lib build",
+    "compile": "cake compile",
+    "copy_artifacts": "copyfiles './build/artifacts/**/*' ./lib;",
+    "deploy": "tsc && node 'lib/scripts/deploy'",
+    "fork": "npm run chain -- --fork https://mainnet.infura.io/@$block",
+    "lint": "solium -d contracts/lend/ --fix",
+    "pre_build": "run-s compile copy_artifacts",
+    "rebuild_and_test": "run-s clean build test",
+    "test": "tsc && cake test -t 'lib/test/integration'",
+    "tslint": "tslint --project . --exclude **/generated_contract_wrappers/**/* --exclude **/lib/**/*",
+    "watch_without_deps": "yarn pre_build && tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marbleprotocol/polaris.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marbleprotocol/polaris/issues"
+  },
+  "homepage": "https://github.com/marbleprotocol/polaris#readme",
+  "dependencies": {
+    "@0x/base-contract": "^3.0.8",
+    "@0x/tslint-config": "^1.0.10",
+    "@types/dotenv": "^6.1.0",
+    "@types/web3-provider-engine": "^14.0.0",
+    "dotenv": "^6.2.0",
+    "ethereum-types": "^1.1.2",
+    "ethereumjs-util": "^5.1.1",
+    "ethers": "^4.0.15",
+    "ganache-cli": "^6.1.8",
+    "lodash": "^4.17.11",
+    "openzeppelin-solidity": "git://github.com/marbleprotocol/openzeppelin-solidity.git#cb21987",
+    "rlp": "^2.2.2",
+    "web3": "^1.0.0-beta.36",
+    "web3-eth-abi": "^1.0.0-beta.36",
+    "web3-provider-engine": "^14.1.0"
+  },
+  "devDependencies": {
+    "@0x/sol-compiler": "^1.1.14",
+    "@0x/typescript-typings": "^3.0.4",
+    "@0x/utils": "^2.0.6",
+    "@0x/web3-wrapper": "^3.1.6",
+    "@marbleprotocol/cake": "^0.0.5",
+    "@marbleprotocol/dev-utils": "^0.0.6",
+    "@types/chai": "^4.1.4",
+    "@types/lodash": "^4.14.118",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^8.0.53",
+    "@types/web3-eth-abi": "^1.0.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.1",
+    "copyfiles": "^1.2.0",
+    "dirty-chai": "^2.0.1",
+    "mocha": "^4.1.0",
+    "npm-run-all": "^4.1.2",
+    "shx": "^0.2.2",
+    "solium": "^1.1.8",
+    "tslint": "5.11.0",
+    "typescript": "2.9.2"
+  }
+}
