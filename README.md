@@ -24,6 +24,40 @@ MarbleSubscriber.sol: [0xf25acad904cb436bc3f970fc0a05ede486430cc9](https://ether
  * A valid poke mints one oracle token to the poker. Each underlying token (e.g., DAI) has a corresponding oracle token.
  * Smart contract protocols must subscribe to read prices from the price oracle. The monthly subscription fee is 5 ether per token. Marble will launch the first paying subscriber for the ETH-DAI price oracle.
  * Burn oracle tokens to collect subscription fees.
+ 
+### Reading the price
+
+#### getDestAmount
+```
+/**
+* @notice This uses the x * y = k bonding curve to determine the destination amount based on the medianized price.
+*              𝝙x = (𝝙y * x) / (y + 𝝙y)
+* @dev Get the amount of destination token, based on a given amount of source token.
+* @param src The address of the source token.
+* @param dest The address of the destination token.
+* @param srcAmount The amount of the source token.
+* @return The amount of destination token.
+*/
+
+// i.e. - Getting the amount of DAI for 1 ETH
+// src       : ETH - 0x000000000000000000000000000000000000000
+// dest      : DAI - 0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359
+// srcAmount : 1 ETH in wei
+getDestAmount(0x0000000000000000000000000000000000000000, 0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359, 1000000000000000000)
+```
+
+#### getMedianizer
+```
+/**
+* @dev Get price data for a given token.
+* @param token The address of the token to query.
+* @return The price data struct.
+*/
+
+// i.e. - Getting all the raw oracle data for DAI
+// token: DAI - 0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359
+getMedianizer(0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359)
+```
 
 ### Install dependencies
 ```
