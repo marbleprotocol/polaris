@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/marbleprotocol/polaris/tree/master.svg?style=svg)](https://circleci.com/gh/marbleprotocol/polaris/tree/master)
 
-# Polaris
+# ✨ Polaris
 
 Polaris is an on-chain decentralized price oracle for ERC20 tokens. It calculates the median of historical checkpoints on Uniswap for a price that is both accurate and resistant to manipulation.
 
